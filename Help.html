@@ -1,0 +1,170 @@
+<html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Service</title>
+</head>
+<style>
+    .ma {
+        background: fixed;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+        align-items: center;
+        display: flex;
+        color: bisque;
+
+    }
+
+    body {
+        background-image: url("./navblue.jpg");
+    }
+
+    .accordian {
+        color: rgb(255, 255, 255);
+        border: 1px solid rgba(128, 128, 128, 0.144);
+        border-radius: 0.5rem;
+        margin-bottom: 0.5rem;
+        background-color: rgba(255, 255, 255, 0.081);
+    }
+
+    .accordian-heading {
+        padding: 0.7rem;
+        cursor: pointer;
+    }
+
+    .accordian-summary {
+        color: tomato;
+        transition: height .5s linear;
+        overflow: hidden;
+        max-height: 0;
+        padding: 0;
+    }
+
+    .hidden {
+        padding: 0.7rem;
+        max-height: initial;
+    }
+</style>
+
+<body>
+    <div class="ma">
+        <h1>Visit Mart Quick Help Guide</h1>
+    </div>
+    <div id="container">
+    </div>
+    <script>
+        const data = [
+            {
+                heading: 'Account Setup',
+                summary: 'Create an Account: Click "Sign Up," fill in your details, verify your email, and start shopping.Browse Products: Use the search bar or browse categories to find what you need.'
+            },
+            {
+                heading: 'Price Orders',
+                summary: 'Create an Account: Click "Sign Up," fill in your details, verify your email, and start shopping.Browse Products: Use the search bar or browse categories to find what you need.'
+            },
+            {
+                heading: 'Payment Options',
+                summary: 'Create an Account: Click "Sign Up," fill in your details, verify your email, and start shopping.Browse Products: Use the search bar or browse categories to find what you need.'
+            },
+            {
+                heading: 'Shipping & Tracking',
+                summary: 'Create an Account: Click "Sign Up," fill in your details, verify your email, and start shopping.Browse Products: Use the search bar or browse categories to find what you need.'
+            },
+            {
+                heading: 'Returns & Refunds',
+                summary: 'Create an Account: Click "Sign Up," fill in your details, verify your email, and start shopping.Browse Products: Use the search bar or browse categories to find what you need.'
+            },
+            {
+                heading: 'Visit our FAQs page for quick answers.',
+                summary: 'Create an Account: Click "Sign Up," fill in your details, verify your email, and start shopping.Browse Products: Use the search bar or browse categories to find what you need.'
+            }
+        ]
+        const container = document.getElementById("container");
+
+        1. Account Setup
+Create an Account: Click "Sign Up," fill in your details, verify your email, and start shopping.
+Browse Products: Use the search bar or browse categories to find what you need.
+
+
+
+
+
+
+Placing Orders
+Add to Cart: "Select your item’s size, color, and quantity, then click "Add to Cart,
+Checkout Review your cart, enter shipping details, choose a payment method, and place your order"
+
+
+
+
+ Payment Options
+We accept Credit/Debit Cards, PayPal, Net Banking, and Cash on Delivery (in select areas).
+
+
+
+Shipping & Tracking
+Shipping: Choose standard or express shipping. Free standard shipping on orders over [insert amount].
+Track Orders: Check your email for a tracking number or visit "My Orders" in your account.
+
+ Returns & Refunds
+
+ Customer Support
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        function createAccordian(id) {
+            data.map((e, _) => {
+                let accordian = document.createElement('div')
+                accordian.setAttribute('class', 'accordian')
+
+                let accordian_header = document.createElement("div");
+                accordian_header.setAttribute("class", 'accordian-heading')
+                accordian_header.setAttribute("id", `accordian-heading-${_}`)
+                accordian_header.innerText = data[_].heading
+
+                let accordian_summary = document.createElement("div")
+                accordian_summary.setAttribute("class", 'accordian-summary')
+                accordian_summary.setAttribute("id", `accordian-summary-${_}`)
+                accordian_summary.innerText = data[_].summary
+
+                accordian.appendChild(accordian_header);
+                accordian.appendChild(accordian_summary);
+
+                accordian_header.onclick = () => accordian_summary.classList.toggle('hidden')
+
+
+                container.appendChild(accordian)
+            }
+
+            )
+        }
+        createAccordian()
+    </script>
+</body>
+
+</html>
